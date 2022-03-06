@@ -1,0 +1,18 @@
+<!--
+ * @Description : 
+ * @Date        : 2022-03-06 22:16:35 +0800
+ * @Author      : JackChou
+ * @LastEditTime: 2022-03-06 22:16:36 +0800
+ * @LastEditors : JackChou
+-->
+<li class="user-card">
+  <h2 x-text="item.name"></h2>
+
+  <p x-text="item.age"></p>
+
+  <ul>
+    <template x-for="skill in item.skills">
+      <li x-text="skill"></li>
+    </template>
+  </ul>
+</li>

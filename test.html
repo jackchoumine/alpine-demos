@@ -1,0 +1,62 @@
+<!--
+ * @Description : 
+ * @Date        : 2022-03-06 22:12:42 +0800
+ * @Author      : JackChou
+ * @LastEditTime: 2022-03-06 23:00:50 +0800
+ * @LastEditors : JackChou
+-->
+<head>
+  <style>
+    .dropdown-toggle {
+      width: 100px;
+      height: 100px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+
+<x-component-wrapper x-component template="dropdown" x-data="dropdown"></x-component-wrapper>
+<x-component-wrapper x-component template="dropdown" x-data="dropdown"></x-component-wrapper>
+
+<template id="dropdown">
+  <div @click="close" class="dropdown-toggle">
+    <button x-on:click="open">Open</button>
+    <div x-show="show" x-text="content"></div>
+  </div>
+</template>
+
+<script type="module">
+  import { default as Alpine } from 'https://cdn.skypack.dev/alpinejs'
+  import alpinejsComponent from 'https://cdn.skypack.dev/alpinejs-component'
+  function dropdown() {
+    return {
+      // return () => ({
+      show: false,
+      open() {
+        console.log('open')
+        this.show = true
+        console.log(this.show)
+      },
+      close(event) {
+        const button = this.$el.querySelector('button')
+        const target = event.target
+        if (this.$el.contains(target) && !button.contains(target)) {
+          this.show = false
+        }
+      },
+      get isOpen() {
+        return this.show === true
+      },
+      content: 'Default content',
+      init() {
+        console.log(this.$el.parentElement)
+        console.log('dropdown --- init')
+      },
+      // })
+    }
+  }
+  Alpine.data('dropdown', dropdown) // 注册数据
+  Alpine.plugin(alpinejsComponent) // 注册组件
+  Alpine.start() // 启动组件
+</script>
+<!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->

@@ -1,0 +1,57 @@
+<!--
+ * @Description : 
+ * @Date        : 2022-03-07 13:10:44 +0800
+ * @Author      : JackChou
+ * @LastEditTime: 2022-03-07 14:21:09 +0800
+ * @LastEditors : JackChou
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>petite-vue</title>
+  </head>
+  <body
+    onchange="(event)=>{
+    console.log(event)
+  }"
+  >
+    <h2>petite-vue</h2>
+    <div id="app">
+      <p>{{count}}</p>
+      <button
+        @click="plus"
+        @vue-change="({detail})=>{
+        log(detail)}"
+      >
+        +
+      </button>
+    </div>
+    <script type="module">
+      // import { createApp } from 'https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js?module'
+      import { createApp } from '/node_modules/petite-vue/dist/petite-vue.es.js'
+      console.log('emit')
+      createApp({
+        // $delimiters: ['[[', ']]'],
+        count: 0,
+        plus(event) {
+          console.log(event.target)
+          this.count++
+          const changeEvent = new CustomEvent('vue-change', {
+            detail: {
+              count: this.count + 1,
+            },
+          })
+          event.target.dispatchEvent(changeEvent)
+          console.log(this.$el)
+          // this.$emit('change', { count: this.count })
+        },
+      }).mount('#app')
+      window.addEventListener('vue-change', (event) => {
+        console.log(event.detail)
+      })
+    </script>
+  </body>
+</html>

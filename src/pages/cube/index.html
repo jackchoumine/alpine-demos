@@ -2,7 +2,7 @@
  * @Description : 
  * @Date        : 2022-03-27 19:35:39 +0800
  * @Author      : JackChou
- * @LastEditTime: 2022-03-27 20:20:01 +0800
+ * @LastEditTime: 2022-03-27 21:43:44 +0800
  * @LastEditors : JackChou
 -->
 <!DOCTYPE html>
@@ -15,6 +15,18 @@
   </head>
   <body>
     <h1>cube</h1>
+    <x-component-wrapper x-component template="dropdown" x-data="dropdown(true)"></x-component-wrapper>
+    <!-- <x-component-wrapper
+      x-component
+      template="dropdown"
+      x-data="{...dropdown(),...{content:'覆盖默认内容'}"
+    ></x-component-wrapper> -->
+    <template id="dropdown">
+      <div @click="close" class="dropdown-toggle">
+        <button x-on:click="open">Open</button>
+        <div x-show="show" x-text="content"></div>
+      </div>
+    </template>
     <script src="./main.js" type="module"></script>
   </body>
 </html>

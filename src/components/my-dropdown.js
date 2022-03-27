@@ -2,11 +2,13 @@
  * @Description :
  * @Date        : 2022-03-06 20:49:58 +0800
  * @Author      : JackChou
- * @LastEditTime: 2022-03-06 21:57:11 +0800
+ * @LastEditTime: 2022-03-27 21:01:59 +0800
  * @LastEditors : JackChou
  */
 // import Alpine from '../../node_modules/alpinejs/dist/module.esm'
-const { default: Alpine } = await import('https://cdn.skypack.dev/alpinejs')
+// const { default: Alpine } = await import('https://cdn.skypack.dev/alpinejs')
+import Alpine from 'alpinejs'
+
 import { insertTemplate } from '../utils/index.js'
 // export
 const dropdownTemplate = /*html*/ `

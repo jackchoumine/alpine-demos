@@ -2,7 +2,7 @@
  * @Description :
  * @Date        : 2022-03-27 19:30:13 +0800
  * @Author      : JackChou
- * @LastEditTime: 2022-03-27 21:27:31 +0800
+ * @LastEditTime: 2022-03-27 22:01:31 +0800
  * @LastEditors : JackChou
  */
 import { defineConfig } from 'vite'
@@ -168,3 +168,5 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
   },
 })
+
+// https://blog.csdn.net/qq_42825870/article/details/120727928

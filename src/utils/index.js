@@ -2,7 +2,7 @@
  * @Description :
  * @Date        : 2022-03-06 20:53:23 +0800
  * @Author      : JackChou
- * @LastEditTime: 2022-03-06 22:02:33 +0800
+ * @LastEditTime: 2022-03-27 21:10:53 +0800
  * @LastEditors : JackChou
  */
 // https://stackoverflow.com/questions/65710987/reusable-alpine-js-components
@@ -45,4 +45,7 @@ export function insertTemplate(htmlStr) {
   // queueMicrotask(() => {
   createCustomElement()
   // })
+}
+export function test(name) {
+  console.log(name)
 }

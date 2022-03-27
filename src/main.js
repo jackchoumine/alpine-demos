@@ -2,10 +2,10 @@
 // import './assets/style.css'
 // const { default: Alpine } = await import('alpinejs') // await import('https://cdn.skypack.dev/alpinejs')
 import Alpine from 'alpinejs'
+import '@/assets/style.css'
+import { myInput, myInputHtml } from '@/components/MyInput.js'
+import '@/components/my-dropdown.js'
 window.Alpine = Alpine
-
-import { myInput, myInputHtml } from '/src/components/MyInput.js'
-import '/src/components/my-dropdown.js'
 // import { dropdownTemplate } from './components/my-dropdown'
 // import { insertTemplate } from './utils'
 // 注册组件到页面上
